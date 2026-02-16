@@ -9,8 +9,8 @@ const rubik = Rubik({
 });
 
 export const metadata: Metadata = {
-  title: "AN Contractors",
-  description: "Building Dreams - With over 25 years of experience, we transform houses into homes.",
+  title: "Nak Muay Foundation",
+  description: "Empowering communities through Muay Thai — building gyms, supporting athletes, and spreading the art of eight limbs worldwide.",
 };
 
 export default function RootLayout({

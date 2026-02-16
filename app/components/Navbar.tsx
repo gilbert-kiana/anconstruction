@@ -1,14 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Our Services", href: "/services" },
-  { name: "Our Projects", href: "/projects" },
+  { name: "Our Mission", href: "/mission" },
+  { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -16,17 +15,15 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="absolute top-10 left-16 right-10 z-50 flex items-center justify-between px-4 py-4 md:top-12 md:left-20 md:right-12">
+    <nav className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-6 md:px-12 md:py-8">
       {/* Logo */}
-      <Link href="/" className="flex items-center">
-        <Image
-          src="/logo.png"
-          alt="AN Contractors Logo"
-          width={240}
-          height={80}
-          className="h-20 w-auto"
-          priority
-        />
+      <Link href="/" className="flex items-baseline gap-1.5">
+        <span className="text-[#F97316] font-black text-xl tracking-tight">
+          NAK MUAY
+        </span>
+        <span className="text-white font-semibold text-xl tracking-tight">
+          FOUNDATION
+        </span>
       </Link>
 
       {/* Navigation Links */}
@@ -37,12 +34,14 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className={`flex items-center gap-2 text-base font-medium transition-colors ${
-                isActive ? "text-white" : "text-white/80 hover:text-[#e68b5d]"
+              className={`flex items-center gap-2 text-sm font-medium transition-colors ${
+                isActive
+                  ? "text-white"
+                  : "text-white/60 hover:text-[#F97316]"
               }`}
             >
               {isActive && (
-                <span className="w-2 h-2 rounded-full bg-[#e68b5d]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" />
               )}
               {link.name}
             </Link>
@@ -52,10 +51,10 @@ export default function Navbar() {
 
       {/* CTA Button */}
       <Link
-        href="/contact"
-        className="bg-white text-[#2a306d] px-8 py-3 rounded-full text-base font-semibold hover:bg-gray-100 transition-colors"
+        href="/donate"
+        className="bg-[#F97316] text-[#0a0a0a] px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#ea6c0e] transition-colors"
       >
-        Get Started
+        DONATE NOW
       </Link>
     </nav>
   );

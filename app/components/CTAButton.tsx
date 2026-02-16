@@ -1,39 +1,36 @@
+"use client";
+
 import Link from "next/link";
 
 interface CTAButtonProps {
-  videoEnded?: boolean;
+  visible?: boolean;
 }
 
-export default function CTAButton({ videoEnded = false }: CTAButtonProps) {
+export default function CTAButton({ visible = false }: CTAButtonProps) {
   return (
     <div
-      className={`inline-flex items-center gap-3 transition-all duration-500 ease-out ${
-        videoEnded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"
-      }`}
+      className={`flex items-center gap-3 opacity-0 ${visible ? "animate-fade-in-up" : ""}`}
+      style={{ animationDelay: "0.6s", animationFillMode: "forwards" }}
     >
-      {/* Text Button */}
+      {/* Primary - Donate Now */}
       <Link
-        href="/contact"
-        className="relative bg-white text-[#2a306d] px-6 py-3 rounded-full font-semibold text-base shadow-lg hover:bg-gray-100 transition-colors"
+        href="/donate"
+        className="bg-[#F97316] text-[#0a0a0a] px-8 py-3.5 rounded-full font-bold text-sm uppercase tracking-wide hover:bg-[#ea6c0e] transition-colors flex items-center gap-2"
       >
-        <span className="absolute inset-0 rounded-full bg-white animate-ping opacity-20" />
-        <span className="relative">Start Your Project</span>
+        Donate Now
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
       </Link>
 
-      {/* Separate Arrow Button */}
+      {/* Secondary - Join Our Mission */}
       <Link
-        href="/contact"
-        className="bg-[#e68b5d] p-3 rounded-full shadow-lg hover:bg-[#d47a4c] transition-colors"
+        href="/mission"
+        className="bg-white/5 border border-[#F97316]/30 text-white px-8 py-3.5 rounded-full font-bold text-sm uppercase tracking-wide hover:bg-[#F97316]/10 hover:border-[#F97316]/50 transition-colors flex items-center gap-2"
       >
-        <svg
-          className="w-5 h-5 text-white"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-        >
-          <line x1="7" y1="17" x2="17" y2="7" />
-          <polyline points="7 7 17 7 17 17" />
+        Join Our Mission
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
         </svg>
       </Link>
     </div>
